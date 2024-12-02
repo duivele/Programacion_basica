@@ -1,0 +1,95 @@
+Ejercicios de programación del 09-10-2024
+
+#Preguntar la hora
+hora = int(input("¿Qué hora es en formato 24h?"))        
+if hora <12:
+    print("¡Buenos días!")
+elif hora <18:
+    print("¡Buenas tardes!")
+else: 
+    print("¡Buenas noches!")
+
+#repetir palabra
+palabra = input("Introduce una palabra: ")
+repeticiones = int (input("¿Cuántas veces quieres que se repita?: "))
+for i in range(repeticiones):
+    print(palabra)
+
+#función
+def saludar_por_hora(hora):
+    if hora > 12:
+        print("¡Buenos días!")
+    elif hora >18:
+        print("¡Buenas tardes!")
+    else:
+        print("¡Buenas noches!")
+
+def repetir_palabra(palabra, repeticiones):
+    for i in range(repeticiones):
+        print(palabra)
+
+hora = int(input("¿Qué hora es (en formato 24h)?: "))
+saludar_por_hora(hora)
+
+palabra = input("Introduce una palabra: ")
+repeticiones = int(input("¿Cuántas veces quieres que se repita?: "))
+repetir_palabra(palabra, repeticiones)
+
+
+#Funciones con listas
+def listar_palabras(cantidad):
+    listar_palabras = []
+    for i in range(cantidad):
+        palabra = input("Introduce una palabra: ")
+    listar_palabras.append(palabra)
+    return listar_palabras
+
+def mostrar_palabras(lista):
+    for palabra in lista:
+        print(palabra)
+
+cantidad = int(input("¿Cuántas palabras quieres introducir?: "))
+palabra = listar_palabras(cantidad)
+
+print("Aquí están las palabras que introdujiste: ")
+
+mostrar_palabras(palabra)
+
+#Último ejercicio
+def agregar_entrada(diccionario):
+    palabra = input("Introduce una palabra nueva: ")
+    significado = input("Introduce su significado: ")
+    diccionario[palabra] = significado
+
+def mostrar_diccionario(diccionario):
+    for palabra, significado in diccionario.items():
+        print(f"{palabra}: {significado}")
+
+def buscar_palabra(diccionario):
+    palabra = input("Introduce la palabra que quieres buscar: ")
+    if palabra in diccionario:
+        print(f"El significado de {palabra} es: {diccionario[palabra]}")
+    else:
+        print("Esa palabra no está en el diccionario.")
+        
+diccionario_personal = {}
+
+while True:
+    print("\nMenu:")
+    print("1. Agregar palabra")
+    print("2. Mostrar todas las palabras")
+    print("3. Buscar palabras")
+    print("4. Salir")
+    
+    opcion = input("Elige una opción: ")
+    if opcion == "1":
+        agregar_entrada(diccionario_personal)
+    elif opcion == "2":
+        mostrar_diccionario(diccionario_personal)
+    elif opcion == "3":
+        buscar_palabra(diccionario_personal)
+    elif opcion == "4":
+        print("Has salido del diccionario")
+        break
+    else:
+        print("opción no valida")
